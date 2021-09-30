@@ -8,7 +8,7 @@ init()
 t=time()
 f=open("c:/Users/srinivas/Downloads/Telegram Desktop/words.txt","r").read()
 arr = f.split("\n")
-arr = [x for x in range(0,10000000)]
+# arr = [x for x in range(0,10000000)]
 print(time()-t,len(arr))
 
 def regularSearch(val, arr):
@@ -32,7 +32,7 @@ def binarySearch(val, arr):
 	t0=time()
 	while start<=end:
 		mid = math.floor((start + end) / 2)
-		print(start, mid, end)
+		# print(start, mid, end)
 		# print(arr[mid]<val)
 		if arr[mid]==val:
 			t1=time()
@@ -52,7 +52,9 @@ while True:
 	print(colored("====================================","green"))
 
 	val = input("Enter value to search: ")
-	val = int(val)
+	if val=="q":
+		exit()
+	# val = int(val)
 	
 	r=regularSearch(val, arr)
 	b=binarySearch(val, arr)
