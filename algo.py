@@ -32,7 +32,7 @@ def binarySearch(val, arr):
 	t0=time()
 	while start<=end:
 		mid = math.floor((start + end) / 2)
-		# print(start, mid, end)
+		print(start, mid, end)
 		# print(arr[mid]<val)
 		if arr[mid]==val:
 			t1=time()
