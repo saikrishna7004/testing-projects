@@ -9,6 +9,7 @@ t=time()
 f=open("c:/Users/srinivas/Downloads/Telegram Desktop/words.txt","r").read()
 arr = f.split("\n")
 # arr = [x for x in range(0,10000000)]
+arr.sort()
 print(time()-t,len(arr))
 
 def regularSearch(val, arr):
