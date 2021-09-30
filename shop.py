@@ -3,7 +3,7 @@ from tkinter import messagebox
 import random
 root=Tk()
 root.state("zoomed")
-root.title("bill slip")
+root.title("Billing Software")
 root.geometry('1280x720')
 bg_color='#4D0039'
 
