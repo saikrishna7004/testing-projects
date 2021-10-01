@@ -1,14 +1,15 @@
 from time import time
 from termcolor import colored
-from colorama import init
-import math
+import math, colorama
 
-init()
+colorama.init()
 
 t=time()
-f=open("c:/Users/srinivas/Downloads/Telegram Desktop/words.txt","r").read()
+f=open("words.txt","r").read()
 arr = f.split("\n")
-# arr = [x for x in range(0,10000000)]
+arr1 = [str(x) for x in range(0,10000000)]
+arr += arr1
+arr.sort()
 print(time()-t,len(arr))
 
 def regularSearch(val, arr):
@@ -19,7 +20,7 @@ def regularSearch(val, arr):
 			print(colored("Yes, got it at","green"), colored(i,"green"))
 			break
 		elif i==len(arr)-1:
-			print(colored("Word not found","red"))
+			print(colored("Value not found","red"))
 			break
 	t1=time()
 	print(t1-t0)
@@ -38,6 +39,14 @@ def binarySearch(val, arr):
 			t1=time()
 			print(t1-t0)
 			return (mid,t1-t0)
+		elif arr[start]==val:
+			t1=time()
+			print(t1-t0)
+			return (start,t1-t0)
+		elif arr[end]==val:
+			t1=time()
+			print(t1-t0)
+			return (end,t1-t0)
 		elif arr[mid]<val:
 			start=mid+1
 		elif arr[mid]>val:
@@ -52,8 +61,6 @@ while True:
 	print(colored("====================================","green"))
 
 	val = input("Enter value to search: ")
-	if val=="q":
-		exit()
 	# val = int(val)
 	
 	r=regularSearch(val, arr)
@@ -62,7 +69,7 @@ while True:
 	if b[0] != -1:
 		print(colored("Yes, got it at","green"),colored(b[0],"green"))
 	else:
-		print(colored("Word not found","red"))
+		print(colored("Value not found","red"))
 
 	if r<b[1]:
 		print("Regular wins!!!")
