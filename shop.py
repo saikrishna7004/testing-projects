@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter import messagebox
-import random
+import random, os
 root=Tk()
 root.state("zoomed")
 root.title("Billing Software")
@@ -63,7 +63,9 @@ def save_bill():
     op=messagebox.askyesno("Save bill","Do you want to save the Bill?")
     if op>0:
         bill_details=textarea.get('1.0',END)
-        f1=open("bills/"+str(bill_no.get())+".txt","w")
+        if not os.path.exists('Bills'):
+            os.makedirs('Bills')
+        f1=open("Bills/"+str(bill_no.get())+".txt","w")
         f1.write(bill_details)
         f1.close()
         messagebox.showinfo("Saved",f"Bill No. : {bill_no.get()} Saved Successfully")
